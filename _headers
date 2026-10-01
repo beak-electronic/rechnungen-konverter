@@ -1,0 +1,12 @@
+# Netlify MIME hints
+/vendor/*
+  Content-Type: application/javascript; charset=utf-8
+
+/js/*
+  Content-Type: application/javascript; charset=utf-8
+
+/*.webmanifest
+  Content-Type: application/manifest+json
+
+/sw.js
+  Cache-Control: no-cache

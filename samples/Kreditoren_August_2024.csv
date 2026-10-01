@@ -1,0 +1,7 @@
+Name des Lieferanten;Kreditorennummer;Rechnungsnummer;Zusatznummer;Datum der Rechnung;Notiz;Gesamtbetrag brutto;Teilbetrag brutto;Steuersatz;Nettobetrag;Art der Einnahme;Art der Ausgabe;Konto
+Büro Müller GmbH;10001;RE-2024-0815;;15.08.2024;Büromaterial August;119,00;;19%;100,00;;Ausgabe;3400
+Öko-Papier & Co. KG;10042;INV-8842;;22.08.2024;Recyclingpapier A4;47,60;;19%;40,00;;Ausgabe;3400
+Stadtwerke Berlin;20003;SW-99221;;01.08.2024;Strom Juli;357,00;;19%;300,00;;Ausgabe;4200
+Telekom Deutschland;20010;TD-551122;;05.08.2024;DSL Geschäftskunde;59,48;;19%;49,98;;Ausgabe;4600
+Café zur Ecke;30001;K-0812;;12.08.2024;Kundenbewirtung;83,30;;19%;70,00;;Ausgabe;4650
+IT-Service Schäfer;10055;ITS-2024-09;;28.08.2024;Serverwartung;595,00;;19%;500,00;;Ausgabe;4900

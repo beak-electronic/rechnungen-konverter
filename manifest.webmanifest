@@ -1,0 +1,51 @@
+{
+  "name": "Rechnungen Konverter",
+  "short_name": "Rechnungen",
+  "description": "PISA-Rechnungstabelle (CSV/XLSX) in PDF umwandeln – installierbare PWA (iPad, Windows Chrome)",
+  "start_url": "/rechnungen-konverter/",
+  "scope": "/rechnungen-konverter/",
+  "id": "/rechnungen-konverter/",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "window-controls-overlay"
+  ],
+  "orientation": "any",
+  "background_color": "#dd007a",
+  "theme_color": "#dd007a",
+  "lang": "de",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/rechnungen-konverter/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/rechnungen-konverter/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/rechnungen-konverter/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/rechnungen-konverter/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

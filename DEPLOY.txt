@@ -1,0 +1,26 @@
+GitHub Pages (primär)
+---------------------
+Repo: https://github.com/beak-electronic/rechnungen-konverter
+Branch: main, Pfad: /
+Live: https://beak-electronic.github.io/rechnungen-konverter/
+
+Nach Push auf main baut Pages automatisch. Kein Build-Schritt.
+
+Lokal ohne Deploy
+-----------------
+cd rechnungen-konverter
+python3 -m http.server 8080
+# Browser: http://localhost:8080
+
+Hinweis: Service Worker und PWA brauchen https (Pages liefert das) bzw. localhost.
+
+PDF-Verhalten
+-------------
+Nach der Umwandlung: window.open(blobURL, '_blank') + Download.
+Falls Popups blockiert sind: Button „PDF öffnen“ nutzen (gleiche Blob-URL).
+Auf iOS zusätzlich „Teilen“.
+
+Optional: Netlify Drop
+----------------------
+Ordnerinhalt per Drag-and-Drop auf https://app.netlify.com/drop hochladen.
+Die angezeigte https://….netlify.app URL notieren.

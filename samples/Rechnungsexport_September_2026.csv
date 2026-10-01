@@ -1,0 +1,11 @@
+Name des Kunden;Kundennummer;Debitorennummer;Rechnungsnummer;Zusatznummer;Datum der Rechnung;Notiz;Gesamtbetrag brutto;Teilbetrag brutto;Steuersatz;Nettobetrag;Art der Einnahme / Art der Ausgabe;Kostenstelle;Interne Bemerkung;Fällig am;Skonto bis;Skonto (in %);Skonto (in €);Zahlbetrag nach Skonto;Status der Rechnung;Zahlstatus;offener Betrag;Zahltag1;Zahlbetrag1;Lastschrift;SEPA-Datei generiert;Interne Markierungen
+Firma A GmbH;;10001;DEMO-1001;;01.09.2026;Wartung Gerät 1;1190,00;;19 %;1000,00;Einnahmen/Erlöse Leistungen;;;30.09.2026;;;0,00;1190,00;Erfasst;Offen;1190,00;;;Nein;;
+Firma A GmbH;;10001;DEMO-1002;;01.09.2026;Reparatur Demo;595,00;;19 %;500,00;Einnahmen/Erlöse Leistungen;;;31.10.2026;;;0,00;595,00;Erfasst;Offen;595,00;;;Nein;;
+Testkunde Berlin;;10002;DEMO-1003;;01.09.2026;Lieferung Demo-Artikel;2380,00;;19 %;2000,00;Einnahmen/Erlöse Leistungen;;;07.10.2026;05.10.2026;1 %;23,80;2356,20;Erfasst;Offen;2380,00;;;Nein;;
+Musterkunde Süd GmbH;;10003;DEMO-1004;;01.09.2026;Service Pauschale;1190,00;;19 %;1000,00;Einnahmen/Erlöse Leistungen;;;11.09.2026;;;0,00;1190,00;Erfasst;Bezahlt;0,00;11.09.2026;1190,00;Nein;;
+Musterkunde Süd GmbH;;10003;DEMO-1005;;01.09.2026;Ersatzteil Demo;2380,00;;19 %;2000,00;Einnahmen/Erlöse Leistungen;;;11.09.2026;;;0,00;2380,00;Erfasst;Bezahlt;0,00;27.08.2026;2380,00;Nein;;
+Beispiel AG Nord;;10004;DEMO-1006;;01.09.2026;Schulung vor Ort;714,00;;19 %;600,00;Einnahmen/Erlöse Leistungen;;;30.11.2026;;;0,00;714,00;Erfasst;Offen;714,00;;;Nein;;
+Beispiel AG Nord;;10004;DEMO-1007;;01.09.2026;Gerät Demo-X;3570,00;;19 %;3000,00;Einnahmen/Erlöse Leistungen;;;30.11.2026;;;0,00;3570,00;Erfasst;Offen;3570,00;;;Nein;;
+Testkunde Berlin;;10002;DEMO-1008;;01.09.2026;Reparatur;952,00;;19 %;800,00;Einnahmen/Erlöse Leistungen;;;01.10.2026;29.09.2026;1 %;9,52;942,48;Erfasst;Bezahlt;0,00;02.09.2026;942,48;Nein;;
+Firma B OHG;;10005;DEMO-1009;;01.09.2026;Wartungsvertrag;476,00;;19 %;400,00;Einnahmen/Erlöse Leistungen;;;01.10.2026;29.09.2026;1 %;4,76;471,24;Erfasst;Bezahlt;0,00;02.09.2026;471,24;Nein;;
+Firma B OHG;;10005;DEMO-1010;;01.09.2026;Gerät Demo-Y;4760,00;;19 %;4000,00;Einnahmen/Erlöse Leistungen;;;30.11.2026;;;0,00;4760,00;Erfasst;Offen;4760,00;;;Nein;;
