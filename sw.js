@@ -1,5 +1,5 @@
 /* Rechnungen Konverter – offline app shell + vendor cache */
-const CACHE = 'rechnungen-konverter-v1.5';
+const CACHE = 'rechnungen-konverter-v1.6';
 const ASSETS = [
   './',
   './index.html',
