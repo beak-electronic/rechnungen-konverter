@@ -236,10 +236,32 @@ btnRetry.addEventListener("click", () => {
   show(idleView);
 });
 
-if ("serviceWorker" in navigator) {
+const SW_UPDATE_MS = 45 * 60 * 1000; // ~45 min (Geräte Laufzettel has none; keep long-lived tabs fresh)
+
+function checkForSWUpdate(reg) {
+  try {
+    reg.update();
+  } catch (_) {
+    /* ignore */
+  }
+}
+
+function registerSW() {
+  if (!("serviceWorker" in navigator)) return;
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch((err) => {
-      console.warn("SW register failed", err);
-    });
+    navigator.serviceWorker
+      .register("./sw.js")
+      .then((reg) => {
+        checkForSWUpdate(reg);
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") checkForSWUpdate(reg);
+        });
+        setInterval(() => checkForSWUpdate(reg), SW_UPDATE_MS);
+      })
+      .catch((err) => {
+        console.warn("SW register failed", err);
+      });
   });
 }
+
+registerSW();

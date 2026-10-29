@@ -30,6 +30,59 @@
       } catch (e) {}
     })();
   </script>
+  <script>
+    // Nach einem Update übernimmt der neue Service Worker (skipWaiting + clients.claim).
+    // Hinweis „Update verfügbar“ / „Neu laden“ auf dem einzigen Screen – außer während
+    // eine Umwandlung läuft (#view-progress sichtbar); dann nur vormerken.
+    // Still neu laden nur, solange noch niemand interagiert hat (< 20 s) und keine
+    // Umwandlung läuft.
+    (function () {
+      try {
+        if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) return;
+        var t0 = Date.now(), pending = false, acted = false, bar = null;
+        var mark = function () { acted = true; };
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
+          window.addEventListener(ev, mark, { capture: true, passive: true });
+        });
+        var converting = function () {
+          var e = document.getElementById('view-progress');
+          return !!e && !e.classList.contains('hidden') && !e.hidden;
+        };
+        var makeBar = function () {
+          bar = document.createElement('div');
+          bar.id = 'update-hint';
+          bar.className = 'update-hint';
+          bar.setAttribute('role', 'status');
+          bar.innerHTML = '<span>Update verfügbar</span><button type="button">Neu laden</button>';
+          bar.querySelector('button').addEventListener('click', function () {
+            if (!converting()) location.reload();
+            else sync();
+          });
+        };
+        var sync = function () {
+          if (!pending) return;
+          if (converting()) {
+            if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
+            return;
+          }
+          if (!bar) makeBar();
+          if (bar.parentNode !== document.body) document.body.appendChild(bar);
+        };
+        var later = function () { setTimeout(sync, 0); };
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (pending) return;
+          pending = true;
+          if (!acted && Date.now() - t0 < 20000 && !converting()) { location.reload(); return; }
+          sync();
+          try {
+            new MutationObserver(later).observe(document.body, {
+              subtree: true, attributes: true, attributeFilter: ['class', 'hidden']
+            });
+          } catch (e) {}
+        });
+      } catch (e) {}
+    })();
+  </script>
   <div class="ios-pwa-status-strip" aria-hidden="true"></div>
   <div class="home">
     <header class="app-topbar">
@@ -93,7 +146,7 @@
 
         <div class="home-footer-row">
           <p class="home-footer">
-            Version 1.6<br />
+            Version 1.7<br />
             © BEAK electronic engineering GmbH &amp; Co. KG
           </p>
         </div>

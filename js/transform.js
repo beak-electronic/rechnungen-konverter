@@ -390,16 +390,29 @@ export function transformBuffer(buf, filename = "input.csv") {
       ? `${year} ${monthName} - Rechnungsausgang`
       : `${year} ${monthName} - Ausgaben`;
 
-  rows.sort((a, b) => {
-    const rnA = invoiceNumberSortValue(a.rn);
-    const rnB = invoiceNumberSortValue(b.rn);
-    if (rnA !== rnB) return rnA < rnB ? -1 : 1;
-    const ta = a.datum.getTime() - b.datum.getTime();
-    if (ta !== 0) return ta;
-    const ls = a.lieferant.localeCompare(b.lieferant, "de");
-    if (ls !== 0) return ls;
-    return a.rn.localeCompare(b.rn, "de");
-  });
+  if (kind === "eingang") {
+    // Rechnungseingang: Datum ascending (oldest first), then RN numeric, then Lieferant
+    rows.sort((a, b) => {
+      const ta = a.datum.getTime() - b.datum.getTime();
+      if (ta !== 0) return ta;
+      const rnA = invoiceNumberSortValue(a.rn);
+      const rnB = invoiceNumberSortValue(b.rn);
+      if (rnA !== rnB) return rnA < rnB ? -1 : 1;
+      return a.lieferant.localeCompare(b.lieferant, "de");
+    });
+  } else {
+    // Rechnungsausgang: RN numeric ascending
+    rows.sort((a, b) => {
+      const rnA = invoiceNumberSortValue(a.rn);
+      const rnB = invoiceNumberSortValue(b.rn);
+      if (rnA !== rnB) return rnA < rnB ? -1 : 1;
+      const ta = a.datum.getTime() - b.datum.getTime();
+      if (ta !== 0) return ta;
+      const ls = a.lieferant.localeCompare(b.lieferant, "de");
+      if (ls !== 0) return ls;
+      return a.rn.localeCompare(b.rn, "de");
+    });
+  }
 
   return {
     kind,
